@@ -19,9 +19,21 @@
   <body>
 
   <?php
-    require_once("aettings.php");
+  
+    $host = "192.185.4.78";
+    $user = "prasanga_1";
+    $password = "Leon2012";
+    $sql_db = "prasanga_dp2";
 
-    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+    $conn = @mysqli_connect(
+        $host,
+        $user,
+        $password,
+        $sql_db
+    );
+    if(!$conn){
+      echo"<p>Database connection failure</p>";
+    }
 
     $query = "SELECT * FROM item from prasanga_dp2";
     $result = mysqli_query($conn, $query);
