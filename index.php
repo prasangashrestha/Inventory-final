@@ -17,6 +17,22 @@
     <title>Inventory Management</title>
   </head>
   <body>
+
+  <?php
+    require_once("aettings.php");
+
+    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+    $query = "SELECT * FROM item from prasanga_dp2";
+    $result = mysqli_query($conn, $query);
+
+    while($row = mysqli_fetch_assoc($result)){
+        echo "<p>row['name']</p>";
+        echo "<p>['quantity']</p>";
+    }
+
+  ?>
+
     <!-- Navbar -->
     <nav>
       <div class="nav-wrapper blue">
@@ -30,16 +46,17 @@
 
     <div class="container">
       <!-- Form Card -->
+      <form method = "post">
       <div class="card">
         <div class="card-content">
           <span class="card-title">Add Item</span>
           <form class="col">
             <div class="row">
-              <div class="input-field col s6">
+              <div class="input-field col s4">
                 <input type="text" placeholder="Add Item" id="item-name" />
                 <label for="item-name">Item</label>
               </div>
-              <div class="input-field col s6">
+              <div class="input-field col s4">
                 <input
                   type="number"
                   placeholder="Add Price"
@@ -47,14 +64,24 @@
                 />
                 <label for="item-calories">Price</label>
               </div>
+
+              <div class="input-field col s4">
+                <input
+                  type="number"
+                  placeholder="Quantity"
+                  id="item-quantity"
+                />
+                <label for="item-quantity">Quantity</label>
+              </div>
+
               <button class="add-btn btn blue darken-3">
-                <i class="fa fa-plus"></i> Add Meal
+                <i class="fa fa-plus"></i> Add Item
               </button>
               <button class="update-btn btn orange">
-                <i class="fa fa-pencil-square-o"></i> Update Meal
+                <i class="fa fa-pencil-square-o"></i> Update Item
               </button>
               <button class="delete-btn btn red">
-                <i class="fa fa-remove"></i> Delete Meal
+                <i class="fa fa-remove"></i> Delete Item
               </button>
               <button class="back-btn btn grey pull-right">
                 <i class="fa fa-chevron-circle-left"></i> Back
@@ -62,11 +89,12 @@
             </div>
           </form>
         </div>
+</form>
       </div>
 
       <!-- Calorie Count -->
       <h3 class="center-align">
-        Total Calories: <span class="total-calories">0</span>
+        Total Price: <span class="total-calories">0</span>
       </h3>
 
       <!-- Item List -->
@@ -92,6 +120,42 @@
       </li>
     -->
       </ul>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>
+              <a href="#" class="secondary-content">
+                <i class="edit-item fa fa-pencil"></i>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <script
