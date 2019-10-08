@@ -57,7 +57,7 @@
           <form class="col">
             <div class="row">
               <div class="input-field col s4">
-                <input type="text" placeholder="Add Item" id="item-name" />
+                <input type="text" placeholder="Add Item" name="name" id="item-name" />
                 <label for="item-name">Item</label>
               </div>
               <div class="input-field col s4">
@@ -65,6 +65,7 @@
                   type="number"
                   placeholder="Add Price"
                   id="item-calories"
+                  name="price"
                 />
                 <label for="item-calories">Price</label>
               </div>
@@ -74,13 +75,14 @@
                   type="number"
                   placeholder="Quantity"
                   id="item-quantity"
+                  name="quantity"
                 />
                 <label for="item-quantity">Quantity</label>
               </div>
 
-              <button class="add-btn btn blue darken-3">
-                <i class="fa fa-plus"></i> Add Item
-              </button>
+              <input type="submit" id="submit" class="add-btn btn blue darken-3">
+                
+              
               <button class="update-btn btn orange">
                 <i class="fa fa-pencil-square-o"></i> Update Item
               </button>
@@ -127,6 +129,18 @@
 
       <?php 
 
+      if (!empty($_POST['name'] && $_POST['price'] && $_POST['quantity'])){
+        $name = $_POST["name"];
+        $price = $_POST["price"];
+        $quantity = $_POST["quantity"];
+
+        $query1 = "INSERT into item (name, price, quantity) VALUES ('$name', '$price', '$quantity')";
+        mysqli_query($conn, $query1);
+      }
+      
+
+      
+
       $query = "SELECT * FROM item";
       $result = mysqli_query($conn, $query);
 
@@ -167,6 +181,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="app.js"></script>
+    
   </body>
 </html>
