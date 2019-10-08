@@ -20,7 +20,7 @@
 
   <?php
   
-    $host = "192.185.4.78";
+    $host = "localhost";
     $user = "prasanga_1";
     $password = "Leon2012";
     $sql_db = "prasanga_dp2";
@@ -33,14 +33,6 @@
     );
     if(!$conn){
       echo"<p>Database connection failure</p>";
-    }
-
-    $query = "SELECT * FROM item from prasanga_dp2";
-    $result = mysqli_query($conn, $query);
-
-    while($row = mysqli_fetch_assoc($result)){
-        echo "<p>row['name']</p>";
-        echo "<p>['quantity']</p>";
     }
 
   ?>
@@ -133,42 +125,41 @@
     -->
       </ul>
 
-      <table class="table">
+      <?php 
+
+      $query = "SELECT * FROM item";
+      $result = mysqli_query($conn, $query);
+
+      echo"<table class='table'>
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
+            <th scope='col'>#</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Price</th>
+            <th scope='col'>Quantity</th>
           </tr>
-        </thead>
+        </thead>";
+
+      while($row = mysqli_fetch_assoc($result)){
+
+      echo "
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope='row'>",$row['item_id'],"</th>
+            <td>",$row['name'],"</td>
+            <td>",$row['price'],"</td>
+            <td>",$row['quantity'],"</td>
             <td>
-              <a href="#" class="secondary-content">
-                <i class="edit-item fa fa-pencil"></i>
+              <a href='#' class='secondary-content'>
+                <i class='edit-item fa fa-pencil'></i>
               </a>
             </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
+          </tr>";
+      };
+      echo " </tbody>
       </table>
-    </div>
+    </div>";
+    ?>
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
