@@ -25,10 +25,10 @@
   <?php
     $id =  $_GET["id"];
 
-    $host = "localhost";
-    $user = "root";
-    $password = "root";
-    $sql_db = "test";
+$host = "localhost";
+    $user = "prasanga_1";
+    $password = "Leon2012";
+    $sql_db = "prasanga_dp2";
 
     $conn = @mysqli_connect(
         $host,

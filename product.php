@@ -19,11 +19,10 @@
   <body>
 
   <?php
-  
-    $host = "localhost";
-    $user = "root";
-    $password = "root";
-    $sql_db = "test";
+  $host = "localhost";
+    $user = "prasanga_1";
+    $password = "Leon2012";
+    $sql_db = "prasanga_dp2";
 
     $conn = @mysqli_connect(
         $host,
@@ -78,7 +77,7 @@
       <tbody>
         <tr>
           <th scope='row'>",$row['item_id'],"</th>
-          <td>",$row['item_name'],"</td>
+          <td>",$row['name'],"</td>
           <td>",$row['price'],"</td>
           <td>",$row['quantity'],"</td>
           <td>
