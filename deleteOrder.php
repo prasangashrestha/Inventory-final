@@ -20,6 +20,11 @@
   <body>
 
   <?php
+    
+    //Delete order
+    //Modified 20/09/2019
+    //day 1: basic deleteOrder.php
+
     $id =  $_GET["id"];
 
   $host = "localhost";
@@ -60,9 +65,7 @@
             echo "<script> location.href='orders.php'; </script>";
               
     }else{
-    
-    //Delete order
-    //Modified 20/09/2019
+
     echo '
         <div class="container">
             <nav>
