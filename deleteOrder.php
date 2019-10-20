@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!-- Day 3 -->
+<!DOCTYPE html> 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,6 +20,11 @@
   <body>
 
   <?php
+    
+    //Delete order
+    //Modified 20/09/2019
+    //day 1: basic deleteOrder.php
+
     $id =  $_GET["id"];
 
   $host = "localhost";
@@ -59,8 +65,7 @@
             echo "<script> location.href='orders.php'; </script>";
               
     }else{
-    
-    
+
     echo '
         <div class="container">
             <nav>
@@ -72,8 +77,10 @@
 
   		<form class="form-horizontal" method="POST" action="deleteOrder.php?id='.$row[order_id].'" id="createOrderForm">
             <div class="form-group">
+
 			    <label for="orderDate" class="col-sm-2 control-label">Order Date</label>
 			    <div class="col-sm-10">
+          
 			        <input type="date" class="form-control" id="orderDate" name="orderDate" value="'.$row[order_date].'" disabled="true"/>
 			    </div>
 			</div> <!--/form-group-->
@@ -110,6 +117,7 @@
 				        <input type="text" class="form-control" id="totalAmount" name="totalAmount" value="'.$row[total].'" disabled="true"/>
   					    <input type="hidden" class="form-control" id="total" name="total" value="'.$row[total].'" />
 				    </div>
+
 				  </div> <!--/form-group-->	
 				  <div class="form-group submitButtonFooter">
         			    <div class="col-sm-offset-2 col-sm-10">
@@ -117,6 +125,7 @@
         			    </div>
     			  </div>
 			</form>
+
         <a   href="orders.php">
         <button class="update-btn btn orange">
           <i class="fa fa-pencil-square-o"></i> BACK
