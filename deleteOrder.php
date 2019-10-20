@@ -60,7 +60,8 @@
               
     }else{
     
-    
+    //Delete order
+    //Modified 20/09/2019
     echo '
         <div class="container">
             <nav>
