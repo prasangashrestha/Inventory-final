@@ -133,6 +133,12 @@
       </a>
     ';
 }
+
+    
+    //Delete order
+    //Modified 21/09/2019
+    //day 2: implement Javascript Delete function
+
 ?>
 
     <script
