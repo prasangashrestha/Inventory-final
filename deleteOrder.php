@@ -61,7 +61,11 @@
             $query1 = "DELETE FROM sales WHERE order_id = '".$id."'";
             mysqli_query($conn, $query1);
             
-
+            
+    
+    //Delete order
+    //Modified 21/09/2019
+    //day 2: implement Javascript Delete function
             echo "<script> location.href='orders.php'; </script>";
               
     }else{
@@ -134,10 +138,6 @@
     ';
 }
 
-    
-    //Delete order
-    //Modified 21/09/2019
-    //day 2: implement Javascript Delete function
 
 ?>
 
