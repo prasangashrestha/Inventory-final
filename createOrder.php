@@ -1,4 +1,3 @@
-<!-- Day 3 -->
   <?php
   
 $host = "localhost";
