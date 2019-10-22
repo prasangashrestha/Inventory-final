@@ -34,7 +34,7 @@
         $sql_db
     );
     if(!$conn){
-      echo"<p>Database connection failure</p>"; //Update the order
+      echo"<p>Database connection failure</p>"; //Updating the order when the user is re directed back to the order page
     }
 
     $query = "SELECT * FROM sales WHERE order_id = ".$id."";
