@@ -22,8 +22,9 @@
   <?php
     
     //Delete order
-    //Modified 22/09/2019
-    //day 3: delete order
+    //Modified 23/09/2019
+    //Tuan Tu
+    //day 4: delete order
 
     $id =  $_GET["id"];
 
