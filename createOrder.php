@@ -1,6 +1,4 @@
-  <?php
-  
-  
+  <?php  
 $host = "localhost";
     $user = "prasanga_1";
     $password = "Leon2012";
