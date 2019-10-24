@@ -22,8 +22,10 @@
   <?php
     
     //Delete order
-    //Modified 22/09/2019
-    //day 3: delete order
+    //Modified 24/10/2019
+    //Tuan Tu
+    //day 5: finish implementation of the app
+    //       test worked
 
     $id =  $_GET["id"];
 
