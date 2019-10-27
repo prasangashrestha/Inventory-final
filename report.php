@@ -1,5 +1,8 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
-  <?php
+<?php
   
 $host = "localhost";
     $user = "prasanga_1";
@@ -15,20 +18,12 @@ $host = "localhost";
   if(!$conn){
     echo"<p>Database connection failure</p>";
   }
-  $date =[];
-    $productSql = "SELECT order_date FROM sales ";
-    $productData = mysqli_query($conn, $productSql);
-    echo "<pre>";
-    while($row = mysqli_fetch_assoc($productData)){
-          print_r($row);
-          
-        $a = date_create($row[order_date]);
-        $date[] = date_format($a,"Y-m");
-    }
-    echo "</pre>";
-    print_r($date);
-?>
 
+
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,27 +49,91 @@ $host = "localhost";
     <nav>
       <div class="nav-wrapper blue">
         
-          <a href="#" class="brand-logo center">Order Management</a>
+          <a href="#" class="brand-logo center">Report</a>
         
       </div>
     </nav>
-    <form class="form-horizontal" method="POST" action="" id="createOrderForm">
-           <select class="form-control" name="date" id="date" onchange="getSales()" >
-            <?php
-              $sqlquery = "SELECT DISTINCT year(order_date) as MonthYear FROM sales";
-              $sqltran = mysqli_query($conn, $sqlquery)or die(mysqli_error($conn));
-              while ($rowList = mysqli_fetch_array($sqltran)) {
-                echo "<option value='".$rowList["MonthYear"]."'>" .$rowList["MonthYear"]. "</option>";
-              }
-            ?>    	        
-    		</select>
-    		<button type="submit" name="check" id="createOrderBtn" class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i>Check</button>
-    </form>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-            </div>
-            </body>
-            </html>
+    
+    <div>
+    <h5>Low in stock!!!</h5>
+<?
+$query = "SELECT name, quantity from item where quantity < 50";
+$result = mysqli_query($conn, $query);
+
+while($row = mysqli_fetch_assoc($result)){
+    echo "<p>";
+    echo "<strong>";
+    echo $row[name];
+    echo ": </strong>";
+    echo $row[quantity];
+    echo " items";
+    echo "</p>";
+}
+?>
+</div>
+<div>
+    <h5>Reports</h5>
+    <a href="totalday.php" >All Orders Report</a> <br />
+    <a href="daily.php" >Daily Report</a> <br />
+    <a href="monthly.php" >Monthly Report</a> <br />
+    <a href="totalproduct.php">Product Sales Report</a>
+</div>
+<h5>All Orders</h5>
+<?php 
+    $query = "SELECT * FROM sales";
+    $result = mysqli_query($conn, $query);
+
+    echo"<table class='table'>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Client Name</th>
+          <th>Client Contact</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+          <th></th>
+        </tr>
+      </thead>";
+
+    while($row = mysqli_fetch_assoc($result)){
+
+    echo "
+      <tbody>
+        <tr>
+          <td>",$row['order_id'],"</td>
+          <td>",$row['order_date'],"</td>
+          <td>",$row['client_name'],"</td>
+          <td>",$row['client_contact'],"</td>
+          <td>",$row['product_id'],"</td>
+          <td>",$row['quantity'],"</td>
+          <td>",$row['total'],"</td>
+        </tr>";
+    };
+    echo " </tbody>
+    </table>
+  </div>";
+
+    ?>
+    
+    
+    <div>
+        <form class="form-horizontal" action="functions.php" method="post" name="upload_excel" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="submit" name="Export" class="btn btn-success" value="export to excel"/>
+                </div>
+           </div>                    
+        </form>           
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
 
