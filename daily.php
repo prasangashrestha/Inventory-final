@@ -1,5 +1,9 @@
 <?php
 
+//Tuan Tu
+//Day 3
+//Finalise displaying the chart
+
 $host = "localhost";
     $user = "prasanga_1";
     $password = "Leon2012";
@@ -15,6 +19,9 @@ if(!$conn){
     echo"<p>Database connection failure</p>";
 }
 
+//Tuan Tu
+//Day 2
+//Join data to display daily data (even the day not have any sales)
 $query = "SELECT 
     cal.my_date        AS order_date, 
     COALESCE(t.total, 0) AS val
