@@ -20,7 +20,7 @@
   <body>
 
   <?php
-    $id =  $_GET["id"];
+    $id =  $_GET["id"]; //Updated the correct links
 
   $host = "localhost";
     $user = "prasanga_1";
