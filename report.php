@@ -117,7 +117,8 @@ while($row = mysqli_fetch_assoc($result)){
 
     ?>
     
-    
+    <!--Tuan Tu
+    Export data to CSV file-->
     <div>
         <form class="form-horizontal" action="functions.php" method="post" name="upload_excel" enctype="multipart/form-data">
             <div class="form-group">

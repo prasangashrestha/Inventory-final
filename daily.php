@@ -2,7 +2,7 @@
 
 //Tuan Tu
 //Day 3
-//Finalise displaying the chart
+//Join data to display daily data (even the day not have any sales)
 
 $host = "localhost";
     $user = "prasanga_1";
@@ -20,8 +20,8 @@ if(!$conn){
 }
 
 //Tuan Tu
-//Day 2
-//Join data to display daily data (even the day not have any sales)
+//Day 4
+//Display the chart
 $query = "SELECT 
     cal.my_date        AS order_date, 
     COALESCE(t.total, 0) AS val
