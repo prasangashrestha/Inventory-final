@@ -3,7 +3,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 <?php
-  
+//Tuan Tu
+//Day 5
+//Test data correctness
 $host = "localhost";
     $user = "prasanga_1";
     $password = "Leon2012";

@@ -22,6 +22,10 @@ if(!$conn){
 //Tuan Tu
 //Day 4
 //Display the chart
+
+//Tuan Tu
+//Day 5
+//Test data correctness
 $query = "SELECT 
     cal.my_date        AS order_date, 
     COALESCE(t.total, 0) AS val
