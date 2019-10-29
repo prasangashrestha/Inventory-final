@@ -11,6 +11,7 @@ $conn = @mysqli_connect(
     $password,
     $sql_db
 );
+
 if(!$conn){
     echo"<p>Database connection failure</p>";
 }
