@@ -1,4 +1,4 @@
-<!-- Day 3 -->
+<!-- Day 3 --> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,7 +20,7 @@
   <body>
 
   <?php
-    $id =  $_GET["id"]; //Updated the correct links
+    $id =  $_GET["id"]; // Added navigation
 
   $host = "localhost";
     $user = "prasanga_1";

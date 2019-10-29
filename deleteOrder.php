@@ -19,7 +19,7 @@
   </head>
   <body>
 
-  <?php
+  <?php //Added Navigation
     
     //Delete order
     //Modified 24/10/2019

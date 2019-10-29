@@ -20,7 +20,7 @@
   <body>
 
   <?php
-  $host = "localhost";
+  $host = "localhost"; //Added Navigation
     $user = "prasanga_1";
     $password = "Leon2012";
     $sql_db = "prasanga_dp2";
